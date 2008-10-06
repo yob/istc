@@ -1,0 +1,30 @@
+A small class for generating and validating Internation Standard Text
+Codes (ISTC).
+
+= Installation
+
+gem install istc
+
+= Usage
+
+  ISTC.new("0A9200800000007C").valid?
+  => true
+
+  ISTC.valid?("0A9200800000007C")
+  => true
+
+  ISTC.valid?("0A9200800000007B")
+  => false
+
+  ISTC.complete?("0A9200800000007")
+  => "0A9200800000007C"
+
+= Further Reading
+
+- http://en.wikipedia.org/wiki/International_Standard_Text_Code
+- http://www.istcinfo.org/
+
+= Contributing
+
+Source code is publicly available @ http://github.com/yob/istc/tree/master.
+Patches welcome, preferably via a git repo I can pull from.
