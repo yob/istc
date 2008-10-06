@@ -19,6 +19,9 @@ gem install istc
   ISTC.complete?("0A9200800000007")
   => "0A9200800000007C"
 
+  ISTC.new("0A9200800000007").to_s
+  => "0A9-2008-00000007-C"
+
 = Further Reading
 
 - http://en.wikipedia.org/wiki/International_Standard_Text_Code
