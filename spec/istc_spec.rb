@@ -24,4 +24,15 @@ describe "The ISTC class" do
   it "should calculate a ISTC check digit correctly" do
     ISTC.complete("0A9200112C4F132").should eql("0A9200112C4F1324")
   end
+
+  it "should hyphen a ISTC correctly" do
+    ISTC.new("0A9200112C4F1324").to_s.should eql("0A9-2001-12C4F132-4")
+  end
+
+  it "should return sections of an ISTC correctly" do
+    ISTC.new("0A9200112C4F1324").agency.should eql("0A9")
+    ISTC.new("0A9200112C4F1324").year.should eql("2001")
+    ISTC.new("0A9200112C4F1324").work.should eql("12C4F132")
+    ISTC.new("0A9200112C4F1324").check.should eql("4")
+  end
 end

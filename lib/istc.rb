@@ -16,6 +16,32 @@ class ISTC
     ISTC.valid? @number
   end
 
+  def agency
+    return nil unless valid?
+    @number[0,3]
+  end
+
+  def year
+    return nil unless valid?
+    @number[3,4]
+  end
+
+  def work
+    return nil unless valid?
+    @number[7,8]
+  end
+
+  def check
+    return nil unless valid?
+    @number[15,1]
+  end
+
+  # output a hyphenated version of this ISTC
+  def to_s
+    return nil unless valid?
+    "#{agency}-#{year}-#{work}-#{check}"
+  end
+
   def self.valid?(istc)
     istc = istc.to_s
     istc.length == 16 && istc == ISTC.complete(istc[0,15])
