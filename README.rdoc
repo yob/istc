@@ -16,7 +16,7 @@ gem install istc
   ISTC.valid?("0A9200800000007B")
   => false
 
-  ISTC.complete?("0A9200800000007")
+  ISTC.complete("0A9200800000007")
   => "0A9200800000007C"
 
   ISTC.new("0A9200800000007").to_s
