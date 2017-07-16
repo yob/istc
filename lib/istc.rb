@@ -53,7 +53,6 @@ class ISTC
     num = num.to_s
     return nil unless num.length == 15 && num.match(/[\dA-Fa-f]{11}/)
 
-    #puts num
     arr = (0..14).to_a.collect do |i|
       if i == 0 || i % 4 == 0
         num[i,1].hex * 11
@@ -65,7 +64,6 @@ class ISTC
         num[i,1].hex * 1
       end
     end
-    #puts arr.inspect
     sum = arr.inject { |sum, n| sum + n }
     remainder = sum % 16
     check = remainder.to_s(16).upcase
