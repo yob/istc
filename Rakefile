@@ -1,25 +1,15 @@
 require 'rake'
-require 'rubygems'
-require 'spec/rake/spectask'
-require 'rake/rdoctask'
-
-$LOAD_PATH.unshift File.dirname(__FILE__) + '/lib'
-
-require 'spec'
+require 'rspec/core/rake_task'
+require 'rdoc/task'
 require 'istc'
 
 desc "Default: run specs"
 task :default => :spec
 
-desc "Run all the specs for the notamock plugin."
-Spec::Rake::SpecTask.new do |t|
-  t.spec_files = FileList['spec/**/*_spec.rb']
-  t.spec_opts = ['--colour']
-  t.rcov = true
-  t.rcov_opts = ["--exclude \"spec/*,gems/*\""]
-end
+desc "Run all specs"
+RSpec::Core::RakeTask.new(:spec)
 
-desc "Generate documentation for the notamock plugin."
+desc "Generate documentation"
 Rake::RDocTask.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'ISTC'
