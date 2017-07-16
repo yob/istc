@@ -1,38 +1,35 @@
-$LOAD_PATH << File.dirname(__FILE__) + "/../lib"
-
-require 'spec'
 require 'istc'
 
 describe "The ISTC class" do
   it "should identify a valid ISTC" do
-    ISTC.new("0A9200112C4F1324").valid?.should be_true
+    expect(ISTC.new("0A9200112C4F1324").valid?).to be_truthy
   end
 
   it "should identify a valid ISTC" do
-    ISTC.valid?("0A9200112C4F1324").should be_true
+    expect(ISTC.valid?("0A9200112C4F1324")).to be_truthy
   end
   
   it "should identify an invalid ISTC" do
-    ISTC.valid?(nil).should       be_false
-    ISTC.valid?("902865").should  be_false
-    ISTC.valid?(Array).should     be_false
-    ISTC.valid?(Array.new).should be_false
-    ISTC.valid?("0A9200800000007B").should  be_false
-    ISTC.valid?("0A9200800000007").should   be_false
+    expect(ISTC.valid?(nil)).to       be_falsey
+    expect(ISTC.valid?("902865")).to  be_falsey
+    expect(ISTC.valid?(Array)).to     be_falsey
+    expect(ISTC.valid?(Array.new)).to be_falsey
+    expect(ISTC.valid?("0A9200800000007B")).to  be_falsey
+    expect(ISTC.valid?("0A9200800000007")).to   be_falsey
   end
 
   it "should calculate a ISTC check digit correctly" do
-    ISTC.complete("0A9200112C4F132").should eql("0A9200112C4F1324")
+    expect(ISTC.complete("0A9200112C4F132")).to eql("0A9200112C4F1324")
   end
 
   it "should hyphen a ISTC correctly" do
-    ISTC.new("0A9200112C4F1324").to_s.should eql("0A9-2001-12C4F132-4")
+    expect(ISTC.new("0A9200112C4F1324").to_s).to eql("0A9-2001-12C4F132-4")
   end
 
   it "should return sections of an ISTC correctly" do
-    ISTC.new("0A9200112C4F1324").agency.should eql("0A9")
-    ISTC.new("0A9200112C4F1324").year.should eql("2001")
-    ISTC.new("0A9200112C4F1324").work.should eql("12C4F132")
-    ISTC.new("0A9200112C4F1324").check.should eql("4")
+    expect(ISTC.new("0A9200112C4F1324").agency).to eql("0A9")
+    expect(ISTC.new("0A9200112C4F1324").year).to eql("2001")
+    expect(ISTC.new("0A9200112C4F1324").work).to eql("12C4F132")
+    expect(ISTC.new("0A9200112C4F1324").check).to eql("4")
   end
 end
