@@ -7,7 +7,6 @@ Gem::Specification.new do |s|
   s.author            = "James Healy"
   s.email             = "jimmy@deefa.com"
   s.homepage          = "http://github.com/yob/istc"
-  s.has_rdoc          = true
   s.rdoc_options     << "--title" << "ISTC" << "--line-numbers"
   s.test_files        = Dir.glob("spec/**/*_spec.rb")
   s.files             = Dir.glob("lib/**/*.rb") + [ "MIT-LICENSE", "README.markdown", "CHANGELOG"]
