@@ -1,3 +1,6 @@
+v1.1.1 (21st July 2018)
+- enable frozen_string_literal
+
 v1.1 (16th July 2017)
 - Updated packaging to work well with ruby 1.9.3 to 2.4
 

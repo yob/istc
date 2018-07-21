@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name              = "istc"
-  s.version           = "1.1.0"
+  s.version           = "1.1.1"
   s.summary           = "a (very) small library for working with ISTC"
   s.description       = "a (very) small library for working with ISTC"
   s.license           = "MIT"
